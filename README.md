@@ -1,76 +1,49 @@
-# Odd_or_Even_Game
+This is my best attempt to replicate the popular game played in my home town, known as _Odd or Even_ (Hand cricket).
+Orginally, it is intended to be played by using just hands, making it very covenient to be played on the go.
 
-Alright, first i want you to forget you are on github; you are with one of your friends and are super bored. you want to play a game but
-you dont happen to have anything to play with. Quite miserable, right? 
-Well worry no more someone who was already in your position long ago had already found a solution. An interesting game which only requires your
-hands to play the game. But dont look down yet because this you need more than your fingers to win this game.
+## RULE
 
-introducing,
-    ODD OR EVEN !!! [also known as hand-cricket (the sport game cricket)]
+The game requires both players to show/play a desired number, in the range 1 to 6 ; details will be explained shortly.
+The game can be divided into two parts or innings as defined:
+in the first innings, one player bats while other bowls, in the next innings, the roles are reversed.
 
-How are hands used?
-    -first and foremost, you need to be familiar with the finger representation of the first six numbers.
-    these will come in handy throughout the game.
-    -also this can be played by only two teams at a time. a single player can also be considered a team.
+### Batting & Bowling
 
-well, that was it. now lets get into the rules and general gameplay
+the batter and Bowler will show reveal their choice of numbers at the same time, now there are two possibilities
 
-I) The toss
-    this is the fist part. for this the players get into an agreement on which one selects ODD and which one selects EVEN. 
-    exactly similar to choosing head or tails during a coin toss. then both of them show a number of their choosing simultaneously.
-    add both of them up; if the sum is even, the one who chose EVEN wins the toss, if its odd, the other guy wins. simple.
+1. they both show different numbers, then whatevere number is shown by the batter gets added to his total score
+2. they are the same, in this case the batter is declared as out; if this is the first innings then the current bowler must now bat
+   and try to beat the opponents score.
 
-II)Innings
-    Now the toss is over, the winner of toss can choose either batting or bowling. if she choose batting, the other one must bowl and vice versa.
-    this is known in the biz as an "Innings". once its over, the second Innings start with the roles reversed. all games have only 2 Innings*.
-    (incase you find the terminology difficult, it doest matter. a demo game is included which will make you understand the rules)
+### Toss
 
-RULES & GAMEPLAY
-    now that we know the format of a game, lets dig into what exactly batting and bowling means with help of a demo game.
+the choice of who plays which role in the first innings is decided using a toss, here both players first choose either odd or even
+and then choose a single number. if the sum of both numbers is odd, then the player who selected odd can choose whether to bat or bowl.
+and vice versa.
 
-    As with any interesting games, i summon Alice and Bob. 
-    alice chose even while bob chose odd. during toss, alice showed 5 and bob showed 3, since 8 is even alice won the toss.
-    alice chose to bat first. 
-         the objective of the batter(now alice) is to score as much runs(points) as possible. the objective of the bowler 
-    is to take his wicket (make her out) as fast as possible. how are runs scored and wickets taken? lets see.
-    the batter and bowler shows a number of their choosing at the same time. if they are same, the wicket is lost, if they are different,
-    the batter gets as many points as the number he showed.
-        [note that the numbers showed by players will be shown inside brackets for simplicity]
-     1st Innings: remember, alice is batting. 
-    alice[6]& bob[5] alice now has 6 runs.
-    alice[4]& bob[1] alice now has 10 runs.
-    alice[4]& bob[6] alice now has 14 runs.
-    alice[5]& bob[5] alice's wicket is lost. therefore 1st Innings is over.
-     2nd Innings: now alice is bowling and bob is batting. bob must score 15 runs to win.
-    bob[3]& alice[2] bob now has 3 runs
-    bob[6]& alice[5] bob now has 9 runs
-    bob[1]& alice[1] bob lost his wicket, and also he lost the game. simple.
+### example
 
-Thats all about the game. i hope i didnt make this look too complicated. now back to Github, why did i code this game in C++?
-    i find programming really interesting, and decided to make a terminal game out of it in order to get a feel for actually 
-    doing a "project" all by myself.
-why C++?
-    i love C++
-why post this on Github?
-    not because my code is too awesome to not share, but to make myself familiar with basic git workflow. I dont even know what
-    fork and pull request is 
-So yeah, thats all about it. on the slim chance that anyone else is reading this, thank you. i would really appreaciate a comment.
-even if no one saw this, im ok. my friends were really impressed when i showed them this at the computer lab. made my day, even the 
-teacher appreaciated me.
+let Alice and Bob are playing, for toss, Alice choose even and Bob, odd
+toss:
+Alice:3 Bob:2
+(the sum is 5 -> odd, hence Bob won the toss)
+say he chose to Bat. the gameplay is as follows
 
+```
+Bob-4 Alice-6
+Bob-5 Alice-1
+Bob-5 Alice-3
+Bob-6 Alice-6
+```
 
-    additional notes
-*also some importand notes: the game has some additional rules to make it fair for players
-1. in case of tie: if during the second Innings, the batter needed 50 runs(need 51 to win) and scored exactly 50 runs(1 more run to win) 
-but lost wicket at the very next ball. pretty frustating right? well introducing super over.
-    super over means a small game to resolve tie, much like a sudden death. one more game with just 6 balls and 2 wickets for each batsman.
-    (ball originates from the cricket terminology, for eg: the 1st Innings in demo game only lasted 4 balls)
-    the following are valid super over Innings(dot means wicket is lost): [1 * 4 6 6 2], [5 6 5 3 * *] not that batter has an additional wicket
-2.playing with any number of players: what if you have a total of 3 players, sucks for one to watch the other two playing, right?
-introducing "common":
-    here, each team has equal number of players and if one is left over, he will play as a common. common is a player who plays for both teams
-    but only during their batting, and not during bowling. say another friend Charlie joined alice and bob. during alice's batting, after
-    alice is out, Charlie can bat for alice using his wicket. after he is also out, bob bats (alice bowls) when he's down Charlie bats for bob
-    [NB: common can never bowl, nor can open an Innings, the team players much play first]
+Bod scored a total of 4+5+5=14 runs (the final is not counted), now Alice must score atleast
+15 runs to win
+say the alice's gameplay goes like
 
-                                             ~Fin~
+```
+Alice-2 Bob-3
+Alice-6 Bob-1
+Alice-5 Bob-5
+```
+
+Alice got out at 8 runs, hence Bob won the game
